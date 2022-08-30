@@ -1,0 +1,54 @@
+<div class="container" appParent>
+  <h2>resolution modifier and their implementation</h2>
+  <ul appChild>
+    <li>
+      <h4>Optional</h4>
+      <p>
+        This is type is added before declaring a dependency injector on a
+        constructor to avoid getting run time error if the dependency is not
+        provided in component or module or root level (the path in which the
+        dependency resolution happens)
+      </p>
+      <code>
+        constructor(@Optional() private serviceLoaclIdentifer: ServiceName)
+        <p>and Optional is imported from angular core</p>
+      </code>
+    </li>
+    <li>
+      <h4>Self</h4>
+      <p>
+        This is type is added before declaring a dependency injector on a
+        constructor to create a local instance of the dependency inside the
+        class its defined
+      </p>
+      <code>
+        constructor(@Self() private serviceLoaclIdentifer: ServiceName)
+        <p>and Self is imported from angular core</p>
+      </code>
+    </li>
+    <li>
+      <h4>SkipSelf</h4>
+      <p>
+        This is type is added before declaring a dependency injector on a
+        constructor to ignore local instance of the dependency inside the class
+        its defined and consider the parent or the root instance
+      </p>
+      <code>
+        constructor(@SkipSelf() private serviceLoaclIdentifer: ServiceName)
+        <p>and SkipSelf is imported from angular core</p>
+      </code>
+    </li>
+    <li>
+      <h4>Host</h4>
+      <p>
+        This is type is added before declaring a dependency injector on a
+        constructor to take the object reference to its immediate parent if not
+        will throw an error
+      </p>
+      <code>
+        constructor(@Host() private serviceLoaclIdentifer: ServiceName)
+        <p>and Host is imported from angular core</p>
+      </code>
+    </li>
+  </ul>
+</div>

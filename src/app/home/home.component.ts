@@ -21,6 +21,19 @@ export class HomeComponent implements OnInit {
   constructor(private ngRedux: NgRedux<AppState>) {
     this.isFetching = this.ngRedux.select(getHomeisFetching);
     this.homeDetails = this.ngRedux.select(getHomeData);
+    let a = 3;
+    let b = 4;
+    let obj = {
+      c(d: number, e: number) {
+        return e * d;
+      },
+      add(d: number, e: number) {
+        return d + e;
+      },
+    };
+
+    console.log(obj.add(a, b));
+    console.log(obj.c(a, b));
   }
 
   ngOnInit(): void {}
