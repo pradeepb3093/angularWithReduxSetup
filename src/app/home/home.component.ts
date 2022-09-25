@@ -41,4 +41,8 @@ export class HomeComponent implements OnInit {
   setData() {
     this.ngRedux.dispatch(HOME_FETCH_DATA.TRIGGER());
   }
+
+  clearData() {
+    this.ngRedux.dispatch(HOME_FETCH_DATA.RESET());
+  }
 }

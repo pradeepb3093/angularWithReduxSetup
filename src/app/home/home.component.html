@@ -1,19 +1,25 @@
 <div class="container">
   <h1>Handling Data using Redux store</h1>
   <p>This section displays the data from store</p>
-  <div *ngIf="(homeDetails | async) && !(isFetching | async)" class="mb-2">
-    <label>Name: </label> {{ (homeDetails | async)?.name }}
-    <br />
-    <label>Age: </label> {{ (homeDetails | async)?.age }}
-  </div>
   <div *ngIf="isFetching | async" class="mb-2">
     <p>Loading...</p>
     <p>Store data is being saved</p>
   </div>
+  <div *ngIf="(homeDetails | async) && !(isFetching | async)" class="mb-2">
+    <div>
+      <label>Name: </label> {{ (homeDetails | async)?.name }}
+      <br />
+      <label>Age: </label> {{ (homeDetails | async)?.age }}
+    </div>
+    <button class="btn btn-primary mt-2" (click)="clearData()">
+      Clear data in store 
+    </button>
+  </div>
+
   <div *ngIf="!(homeDetails | async) && !(isFetching | async)" class="mb-2">
     <p>No Data in store</p>
+    <button class="btn btn-primary mt-2" (click)="setData()">
+      Set data in store 
+    </button>
   </div>
-  <button class="btn btn-primary mt-2" (click)="setData()">
-    Set data in store 
-  </button>
 </div>

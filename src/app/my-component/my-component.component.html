@@ -1,3 +1,128 @@
-<p>
-  my-component works!
-</p>
+<main class="container">
+  <h2>Component Life cycle</h2>
+  <ul>
+    <li>
+      <h4>OnChanges</h4>
+      <p>
+        Purpose: Respond when Angular sets or resets data-bound input
+        properties. The method receives a SimpleChanges object of current and
+        previous property values.
+      </p>
+
+      <p>
+        Timing: Called before ngOnInit() (if the component has bound inputs) and
+        whenever one or more data-bound input properties change.
+      </p>
+      <p>
+        NOTE: If your component has no inputs or you use it without providing
+        any inputs, the framework will not call ngOnChanges().
+      </p>
+
+      <code>
+        <p>
+          Eg: Follwing child component as an input value which triggers onchange
+          check console for logs and below change object displays the actual
+          change object for the input
+        </p>
+        <button class="btn btn-primary" (click)="updateMessage()">
+          update message
+        </button>
+        <app-child [message]="copy"></app-child>
+      </code>
+    </li>
+    <li>
+      <h4>OnInit</h4>
+      <p>
+        Called once, after the first ngOnChanges(). ngOnInit() is still called
+        even when ngOnChanges() is not (which is the case when there are no
+        template-bound inputs).
+      </p>
+      <code>
+        <p>{{ initMsg }}</p>
+      </code>
+    </li>
+    <li>
+      <h4>DoCheck</h4>
+      <p>
+        Called immediately after ngOnChanges() on every change detection run,
+        and immediately after ngOnInit() on the first run.
+      </p>
+      <code>
+        Following form field will demonstrate the DoCheck hook triggers, try
+        typing something on the input and also try click in and out of the input
+        field without making anychanges to input to see the changes below
+        <br />
+        <input [(ngModel)]="exampleInput" />
+        <p>{{ exampleInput }}</p>
+
+        <p class="child">
+          {{ change_message }}
+        </p>
+      </code>
+    </li>
+    <li>
+      <h4>AfterContentInit</h4>
+      <p>
+        This hook is Called immediately after Angular projects external content
+        into the component's view and Called once after the first ngDoCheck().
+      </p>
+
+      <h4>AfterContentChecked</h4>
+
+      <p>
+        This hook is Called after Angular checks the content projected into the
+        directive or component. Called after ngAfterContentInit() and every
+        subsequent ngDoCheck() check console log when interacting with below
+        example
+      </p>
+
+      <h4>AfterViewInit</h4>
+
+      <p>
+        Respond after Angular initializes the component's views and child views,
+        or the view that contains the directive. Called once after the first
+        ngAfterContentChecked().
+      </p>
+
+      <h4>AfterViewChecked</h4>
+      <p>
+        Respond after Angular checks the component's views and child views, or
+        the view that contains the directive. Called after the ngAfterViewInit()
+        and every subsequent ngAfterContentChecked().
+      </p>
+      <code class="p-4">
+        <p>
+          click the following button to enable child component that projects
+          content and check console log for the hooks trigger points
+        </p>
+
+        <button class="btn btn-primary my-2" (click)="showContent = true">
+          Show content
+        </button>
+        <div *ngIf="showContent" class="m-3">
+          <app-content-container>
+            <p>test content is displayed</p>
+          </app-content-container>
+        </div>
+      </code>
+    </li>
+    <li>
+      <h4>OnDestroy</h4>
+      <p>
+        Cleanup just before Angular destroys the directive or component.
+        Unsubscribe Observables and detach event handlers to avoid memory leaks.
+        Called immediately before Angular destroys the directive or component.
+      </p>
+
+      <code>
+        <p>
+          following btn will navigate back to landing page which will triggere
+          current page destroy method, check console for log message
+        </p>
+        <button class="my-2 btn btn-primary" [routerLink]="['/']">
+          Navigate back to landing pg
+        </button>
+      </code>
+    </li>
+  </ul>
+</main>

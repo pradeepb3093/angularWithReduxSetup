@@ -1,6 +1,7 @@
 import { ModuleWithProviders } from "@angular/core";
 import { ExtraOptions, RouterModule, Routes } from "@angular/router";
 import { HomeComponent } from "../home/home.component";
+import { MyComponentComponent } from "../my-component/my-component.component";
 import { ResolutionModifierExampleComponent } from "../resolution-modifier-example/resolution-modifier-example.component";
 
 const routes: Routes = [
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path: "DI-resolution-modifier",
     component: ResolutionModifierExampleComponent,
+  },
+  {
+    path: "component-lifeCycle",
+    component: MyComponentComponent,
   },
 ];
 

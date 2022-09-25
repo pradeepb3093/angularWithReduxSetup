@@ -8,4 +8,5 @@ export const HOME_FETCH_DATA = {
     "[HOME_FETCH_DATA COMPLETED] save home data in store",
     (payload: homeData) => payload
   ),
+  RESET: createAction("[HOME_FETCH_DATA RESET] reset data to intial state"),
 };

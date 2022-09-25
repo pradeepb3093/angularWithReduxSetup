@@ -21,4 +21,5 @@ export const homeReducer = createReducer(initialHomeState)
   .handleAction(HOME_FETCH_DATA.COMPLETED, (_state, action) => ({
     isFetching: false,
     data: action.payload,
-  }));
+  }))
+  .handleAction(HOME_FETCH_DATA.RESET, () => initialHomeState);
